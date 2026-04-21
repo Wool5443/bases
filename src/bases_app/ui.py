@@ -34,6 +34,10 @@ class BaseConverterWindow(Gtk.ApplicationWindow):
 
         self.string_output = Gtk.Entry(editable=False)
         self.digits_output = Gtk.Entry(editable=False)
+        for entry in (self.input_entry, self.string_output, self.digits_output):
+            entry.set_hexpand(True)
+            entry.set_halign(Gtk.Align.FILL)
+            entry.set_width_chars(1)
 
         self._build_ui()
         self._connect_signals()
@@ -41,6 +45,7 @@ class BaseConverterWindow(Gtk.ApplicationWindow):
 
     def _build_ui(self) -> None:
         outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+        outer.set_hexpand(True)
         outer.set_margin_top(18)
         outer.set_margin_bottom(18)
         outer.set_margin_start(18)
@@ -55,6 +60,7 @@ class BaseConverterWindow(Gtk.ApplicationWindow):
         subtitle.add_css_class("dim-label")
 
         grid = Gtk.Grid(column_spacing=12, row_spacing=12)
+        grid.set_hexpand(True)
         grid.attach(Gtk.Label(label="Number", xalign=0), 0, 0, 1, 1)
         grid.attach(self.input_entry, 1, 0, 1, 1)
         grid.attach(Gtk.Label(label="Source base", xalign=0), 0, 1, 1, 1)
@@ -66,13 +72,16 @@ class BaseConverterWindow(Gtk.ApplicationWindow):
         convert_button.connect("clicked", self._on_convert_clicked)
 
         results = Gtk.Frame(label="Results")
+        results.set_hexpand(True)
         results_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+        results_box.set_hexpand(True)
         results_box.set_margin_top(12)
         results_box.set_margin_bottom(12)
         results_box.set_margin_start(12)
         results_box.set_margin_end(12)
 
         results_grid = Gtk.Grid(column_spacing=12, row_spacing=12)
+        results_grid.set_hexpand(True)
         results_grid.attach(Gtk.Label(label="String output", xalign=0), 0, 0, 1, 1)
         results_grid.attach(self.string_output, 1, 0, 1, 1)
         results_grid.attach(Gtk.Label(label="Digit values", xalign=0), 0, 1, 1, 1)
