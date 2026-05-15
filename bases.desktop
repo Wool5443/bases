@@ -1,9 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Base Converter
+Name=Bases
 Comment=Convert non-negative integers between bases
-Exec=env PYTHONPATH=/home/twenty/Programming/bases/src python3 -m bases_app
+Exec=env PYTHONPATH=/home/twenty/Programming/bases python3 -m bases_app
+Icon=/home/twenty/Programming/bases/assets/icons/base-converter-icon-1024.png
 Terminal=false
 Categories=Utility;
 Keywords=base;number;converter;gtk;python;

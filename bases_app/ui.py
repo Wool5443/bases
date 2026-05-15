@@ -19,7 +19,7 @@ from .converter import (
 
 class BaseConverterWindow(Gtk.ApplicationWindow):
     def __init__(self, app: Gtk.Application) -> None:
-        super().__init__(application=app, title="Base Converter")
+        super().__init__(application=app, title="Bases")
         self.set_default_size(520, 420)
 
         self.input_entry = Gtk.Entry(placeholder_text="Enter a number, e.g. 1011 or 1A")
